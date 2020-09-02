@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="calcBody">
+      <div id="display" dir="rtl"></div>
+      <div id="operationDisplay"></div>
+      <button class="num1" onclick="displayText(1)">1</button>
+      <button class="num2" onclick="displayText(2)">2</button>
+      <button class="num3" onclick="displayText(3)">3</button>
+      <button class="num4" onclick="displayText(4)">4</button>
+      <button class="num5" onclick="displayText(5)">5</button>
+      <button class="num6" onclick="displayText(6)">6</button>
+      <button class="num7" onclick="displayText(7)">7</button>
+      <button class="num8" onclick="displayText(8)">8</button>
+      <button class="num9" onclick="displayText(9)">9</button>
+      <button class="num0" onclick="displayText(0)">0</button>
+      <button class="dot" onclick="displayText('.')">.</button>
+      <button class="add" onclick="displayText('+')">+</button>
+      <button class="subtract" onclick="displayText('-')">-</button>
+      <button class="multiply" onclick="displayText('*')">*</button>
+      <button class="divide" onclick="displayText('/')">/</button>
+      <button class="equals" onclick="operate()">=</button>
+      <button class="clear" onclick="clearAll()">Clear</button>
+      <button class="delete" onclick="backspaceKey()">Del</button>
+    </div>
+    <script src="calcBackend.js"></script> 
+  </body>
+</html>

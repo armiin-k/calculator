@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #242222;
+}
+
+#calcBody, #operationDisplay, #display {
+    background-color: black;
+}
+
+#calcBody {
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px;
+    grid-template-rows: 50px 50px 55px 60px 60px 60px 60px;
+    gap: 10px;
+    height: max-content;
+    width: max-content;
+    border: 10px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 3px;
+}
+
+#operationDisplay {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    color: white;
+    margin-bottom: -5px;
+    font-size: 28px;
+    font-family: 'Rubik', sans-serif;
+    text-indent: 15px;
+    margin-top: 10px;
+}
+
+#display {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin-top: -5px;
+    color: white;
+    font-size: 28px;
+    font-family: 'Rubik', sans-serif;
+    text-indent: 20px;
+}
+
+.add {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.subtract {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.multiply {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.divide {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.clear {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.delete {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+.equals {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 6;
+    grid-row-end: 8;
+}
+
+.num0 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 7;
+    grid-row-end: 8;
+}
+
+.add, .subtract, .multiply, .divide {
+    background-color: gray;
+    border: 1px;
+    border-radius: 10px;
+    color: black;
+}
+
+.clear, .delete, .equals {
+    background-color: #076952;
+    border: 1px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+button {
+    background-color: #2a2e2d;
+    border: 1px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    font-family: 'Rubik', sans-serif !important;
+}
+
+.add:hover, .subtract:hover, .multiply:hover, .divide:hover {
+    background-color: #bec1c0;
+    transform: scale(1.1);
+}
+
+.clear:hover, .delete:hover, .equals:hover {
+    background-color: #229177;
+    transform: scale(1.1);
+}
+
+button:hover {
+    background-color: #4b5955;
+    transform: scale(1.1);
+}
+
+.add:active, .subtract:active, .multiply:active, .divide:active {
+    transform: scale(1.0);
+}
+
+.clear:active, .delete:active, .equals:active {
+    transform: scale(1.0);
+}
+
+button:active {
+    transform: scale(1.0);
+}
