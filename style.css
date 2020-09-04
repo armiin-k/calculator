@@ -5,7 +5,8 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #242222;
+    flex-direction: column;
+    background-color: #1f2120;
 }
 
 #calcBody, #operationDisplay, #display {
@@ -15,13 +16,14 @@ body, html {
 #calcBody {
     display: grid;
     grid-template-columns: 80px 80px 80px 80px;
-    grid-template-rows: 50px 50px 55px 60px 60px 60px 60px;
+    grid-template-rows: 50px 50px 60px 60px 60px 60px 60px;
     gap: 10px;
     height: max-content;
     width: max-content;
     border: 10px solid black;
     border-radius: 10px;
     box-shadow: 0 0 3px;
+    margin-bottom: 50px;
 }
 
 #operationDisplay {
@@ -153,4 +155,17 @@ button:hover {
 
 button:active {
     transform: scale(1.0);
+}
+
+#about {
+    color: gray;
+    font-family: 'Rubik', sans-serif;
+}
+
+a {
+    color: #c5c9c6;
+}
+
+a:hover {
+    color: white;
 }

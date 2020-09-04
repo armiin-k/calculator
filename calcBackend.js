@@ -6,30 +6,29 @@ let finalNumbers = [];
 var firstDisplay = document.getElementById('display');
 var secondDisplay = document.getElementById('operationDisplay');
 var counter = 0;
+var newCounter = 0;
 var result = 0;
 
 /* makes number buttons work */
 function displayText (numValue) {
     if (numValue === parseInt(numValue, 10)) {
         firstDisplay.innerHTML += (numValue);
-        number = numValue;
-        initialNumbers.push(number);
+        initialNumbers.push(numValue);
         console.log(initialNumbers);
-    }else if (numValue !== parseInt(numValue, 10) && counter == 0) {
+        //makes operator buttons work
+    }else if (numValue !== parseInt(numValue, 10) && counter == 0) { 
         finalNumbers.push(initialNumbers.join(''));
-        secondDisplay.innerHTML = finalNumbers + ' ' + numValue;
+        firstDisplay.innerHTML = finalNumbers + ' ' + numValue + ' ';
         initialNumbers = [];
-        firstDisplay.innerHTML = '';
         counter += 1;
+        //checks if operator has already been pressed
     }else if (numValue !== parseInt(numValue, 10) && counter == 1) {
-        /* what happens if operator is pressed twice ? result should be 
-        taken as new number */
         operate();
-        secondDisplay.innerHTML = result + ' ' + numValue;
+        firstDisplay.innerHTML = result + ' ' + numValue + ' ';
+        secondDisplay.innerHTML = '';
         finalNumbers = [];
         initialNumbers = [];
         finalNumbers.push(result);
-        
     }
 }
 
@@ -40,28 +39,33 @@ function backspaceKey () {
     firstDisplay.innerHTML = initialNumbers.join('');
 }
 
-/* final function that takes everything and spits out the result */
+/* function that takes everything and spits out the result */
 function operate() {
-    secondDisplay.innerHTML += ' ' + initialNumbers.join('') + ' = ';
-    finalNumbers.push(initialNumbers.join(''));
-    firstDisplay.innerHTML = '';
-    console.log(secondDisplay.innerHTML);
-    console.log(finalNumbers);
-    let numbers = finalNumbers.map(Number);
-    console.log(numbers);
-    if (secondDisplay.innerHTML.indexOf('+') !== -1) {
-        result = numbers[0] + numbers[1];
-        secondDisplay.innerHTML += result;
-    }else if (secondDisplay.innerHTML.indexOf('-') !== -1) {
-        result = numbers[0] - numbers[1];
-        secondDisplay.innerHTML += result;
-    }else if (secondDisplay.innerHTML.indexOf('*') !== -1) {
-        result = numbers[0] * numbers[1];
-        secondDisplay.innerHTML += result;
-    }else if (secondDisplay.innerHTML.indexOf('/') !== -1) {
-        result = numbers[0] / numbers[1];
-        secondDisplay.innerHTML += result;
+    if (secondDisplay.innerHTML.indexOf('=') == -1) {
+        finalNumbers.push(initialNumbers.join(''));
+        secondDisplay.innerHTML = firstDisplay.innerHTML;
+        console.log(secondDisplay.innerHTML);
+        console.log(finalNumbers);
+        let numbers = finalNumbers.map(Number);
+        console.log(numbers);
+        //checks which operator was pressed to calculate and print result
+        if (firstDisplay.innerHTML.indexOf('+') !== -1) {
+            result = numbers[0] + numbers[1];
+            secondDisplay.innerHTML += ' = ' + result;
+        }else if (firstDisplay.innerHTML.indexOf('-') !== -1) {
+            result = numbers[0] - numbers[1];
+            secondDisplay.innerHTML += ' = ' + result;
+        }else if (firstDisplay.innerHTML.indexOf('*') !== -1) {
+            result = numbers[0] * numbers[1];
+            secondDisplay.innerHTML += ' = ' + result;
+        }else if (firstDisplay.innerHTML.indexOf('/') !== -1) {
+            result = numbers[0] / numbers[1];
+            secondDisplay.innerHTML += ' = ' + result;
+        }
+    }else {
+        return;
     }
+    firstDisplay.innerHTML = '';
 }
 /* this clears everything for new calculations */
 function clearAll() {
@@ -72,3 +76,13 @@ function clearAll() {
     counter = 0;
     result = 0;
 }
+
+/* 
+TODO:
+- equals button pressed twice bug - DONE (i hope)
+- result shouldn't always be first number bug
+- dot operator functionality
+- keyboard support
+- test everything for final github commit
+OBJECTS CAN HAVE NAMES I CAN TRACK RESULT AND DISCARD IT IF I NEED TO OOOOMGGGGGG
+*/
