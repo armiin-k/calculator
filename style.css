@@ -6,7 +6,8 @@ body, html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #1f2120;
+    background-color: #151915;
+    flex-wrap: wrap;
 }
 
 #calcBody, #operationDisplay, #display {
@@ -22,7 +23,7 @@ body, html {
     width: max-content;
     border: 10px solid black;
     border-radius: 10px;
-    box-shadow: 0 0 3px;
+    box-shadow: 0 0 7px;
     margin-bottom: 50px;
 }
 
@@ -101,28 +102,35 @@ body, html {
 }
 
 .num0 {
-    grid-column-start: 1;
+    grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 7;
     grid-row-end: 8;
 }
 
+.help {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 7;
+    grid-row-end: 8;
+}
+
 .add, .subtract, .multiply, .divide {
-    background-color: gray;
+    background-color: #4d4d4d;
     border: 1px;
     border-radius: 10px;
     color: black;
 }
 
 .clear, .delete, .equals {
-    background-color: #076952;
+    background-color: #004233;
     border: 1px;
     border-radius: 10px;
     font-size: 18px;
 }
 
 button {
-    background-color: #2a2e2d;
+    background-color: #1a1a1a;
     border: 1px;
     border-radius: 10px;
     font-size: 20px;
@@ -168,4 +176,13 @@ a {
 
 a:hover {
     color: white;
+}
+
+#showHelp {
+    display: none;
+    color: gray;
+    order: 1;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: -30%;
 }
