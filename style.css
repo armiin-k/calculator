@@ -187,7 +187,7 @@ a:hover {
     margin-bottom: -30%;
 }
 
-@media only screen and (mad-width: 768px) {
+@media only screen and (max-width: 768px) {
     body {
         background-color: #121312;
     }
