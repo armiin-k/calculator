@@ -13,3 +13,9 @@ Also finished with keyboard support. Now it meets all of the criteria.
 
 -fourth commit: 
 Tweaked colors on mobile displays because my laptop has poor color accuracy.
+
+-fifth commit: 
+fixed two bugs I found. I'm fairly sure everything in the backend
+is fixed. I'm going to continue to tweak colors because I'm not 
+sure how to reliably set colors because my laptop screen has poor
+color accuracy. We will see.

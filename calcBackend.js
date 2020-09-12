@@ -10,21 +10,28 @@ let operator = '';
 let numbers = [];
 let counter = 0;
 let resultCounter = 0;
+let equalsCounter = 0;
 
 /* function for numpad keys. It also checks if there is a result,
     meaning if a number is pressed a new calculation is started,
     instead of taking the result as the first number */
 function numPad (numValue) {
-    if (secondDisplay.innerHTML.indexOf('=') == -1) {
-        firstDisplay.innerHTML += numValue;
-        initialNumArray.push(numValue);
-    }else if (secondDisplay.innerHTML.indexOf('=') !== -1) {
-        counter = 0;
-        resultCounter = 0;
-        result = 0;
-        secondDisplay.innerHTML = '';
-        firstDisplay.innerHTML += numValue;
-        initialNumArray.push(numValue);
+    if (numValue == '.' && firstDisplay.innerHTML.indexOf('.') !== -1) {
+        return;
+    }else {
+        if (secondDisplay.innerHTML.indexOf('=') == -1) {
+            firstDisplay.innerHTML += numValue;
+            initialNumArray.push(numValue);
+            equalsCounter = 0;
+        }else if (secondDisplay.innerHTML.indexOf('=') !== -1) {
+            counter = 0;
+            resultCounter = 0;
+            result = 0;
+            secondDisplay.innerHTML = '';
+            firstDisplay.innerHTML += numValue;
+            initialNumArray.push(numValue);
+            equalsCounter = 0;
+        }
     }
 }
 
@@ -57,50 +64,56 @@ function operatorButtons (operation) {
 /* function for equals key, looks like it does a lot but just
     calculates, displays result and resets for new calculations */
 function equals () {
-    if (operator == '+') {
-        numArray.push(initialNumArray.join(''));
-        numbers = numArray.map(Number);
-        result = numbers[0] + numbers[1];
-        secondDisplay.innerHTML += ' ' + numArray[1] + ' = ' + result;
-        firstDisplay.innerHTML = '';
-        initialNumArray = [];
-        numArray = [];
-        resultCounter = 1;
-        counter = 1;
-        return result;
-    }else if (operator == '-') {
-        numArray.push(initialNumArray.join(''));
-        numbers = numArray.map(Number);
-        result = numbers[0] - numbers[1];
-        secondDisplay.innerHTML += ' ' + numArray[1] + ' = ' + result;
-        firstDisplay.innerHTML = '';
-        initialNumArray = [];
-        numArray = [];
-        resultCounter = 1;
-        counter = 1;
-        return result;
-    }else if (operator == '*') {
-        numArray.push(initialNumArray.join(''));
-        numbers = numArray.map(Number);
-        result = numbers[0] * numbers[1];
-        secondDisplay.innerHTML += ' ' + numArray[1] + ' = ' + result;
-        firstDisplay.innerHTML = '';
-        initialNumArray = [];
-        numArray = [];
-        resultCounter = 1;
-        counter = 1;
-        return result;
-    }else if (operator == '/') {
-        numArray.push(initialNumArray.join(''));
-        numbers = numArray.map(Number);
-        result = numbers[0] / numbers[1];
-        secondDisplay.innerHTML += ' ' + numArray[1] + ' = ' + result;
-        firstDisplay.innerHTML = '';
-        initialNumArray = [];
-        numArray = [];
-        resultCounter = 1;
-        counter = 1;
-        return result;
+    if (equalsCounter == 0) {
+        if (operator == '+') {
+            numArray.push(initialNumArray.join(''));
+            numbers = numArray.map(Number);
+            result = numbers[0] + numbers[1];
+            secondDisplay.innerHTML += ' ' + numArray[1] + ' = ' + result;
+            firstDisplay.innerHTML = '';
+            initialNumArray = [];
+            numArray = [];
+            resultCounter = 1;
+            counter = 1;
+            equalsCounter = 1;
+            return result;
+        }else if (operator == '-') {
+            numArray.push(initialNumArray.join(''));
+            numbers = numArray.map(Number);
+            result = numbers[0] - numbers[1];
+            secondDisplay.innerHTML += ' ' + numArray[1] + ' = ' + result;
+            firstDisplay.innerHTML = '';
+            initialNumArray = [];
+            numArray = [];
+            resultCounter = 1;
+            counter = 1;
+            equalsCounter = 1;
+            return result;
+        }else if (operator == '*') {
+            numArray.push(initialNumArray.join(''));
+            numbers = numArray.map(Number);
+            result = numbers[0] * numbers[1];
+            secondDisplay.innerHTML += ' ' + numArray[1] + ' = ' + result;
+            firstDisplay.innerHTML = '';
+            initialNumArray = [];
+            numArray = [];
+            resultCounter = 1;
+            counter = 1;
+            equalsCounter = 1;
+            return result;
+        }else if (operator == '/') {
+            numArray.push(initialNumArray.join(''));
+            numbers = numArray.map(Number);
+            result = numbers[0] / numbers[1];
+            secondDisplay.innerHTML += ' ' + numArray[1] + ' = ' + result;
+            firstDisplay.innerHTML = '';
+            initialNumArray = [];
+            numArray = [];
+            resultCounter = 1;
+            counter = 1;
+            equalsCounter = 1;
+            return result;
+        }
     }
 }
 
