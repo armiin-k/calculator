@@ -186,3 +186,13 @@ a:hover {
     font-family: 'Rubik', sans-serif;
     margin-bottom: -30%;
 }
+
+@media only screen and (mad-width: 768px) {
+    body {
+        background-color: #121312;
+    }
+
+    .add, .subtract, .multiply, .divide {
+        background-color: #2b2a2a;
+    }
+}
